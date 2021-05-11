@@ -1,0 +1,12 @@
+.profile__addButton {
+    display: flex;
+    text-decoration: none;
+    color: white;
+    border: 2px solid white;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    width: 150px;
+    margin-top: 35px;
+    font-size: 22px;
+}
