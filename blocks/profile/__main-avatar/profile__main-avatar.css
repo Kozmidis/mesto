@@ -2,3 +2,10 @@
     border-radius: 65px;
     margin-right: 28px;
 }
+
+@media all and (max-width: 740px) {
+    .profile__main-avatar {
+        justify-self: center;
+        margin: 0px;
+    }
+}

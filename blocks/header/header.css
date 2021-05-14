@@ -5,3 +5,9 @@
     padding: 45px 0 41px;
     border-bottom: 1px solid #545454;
 }
+
+@media all and (max-width: 740px) {
+    .header {
+        width: 100%;
+    }
+}

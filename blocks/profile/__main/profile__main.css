@@ -1,3 +1,13 @@
 .profile__main {
-    display: flex;
+    display: grid;
+    grid-auto-flow: column;
+    width: 100%;
+    grid-template-columns: min-content;
+}
+
+@media all and (max-width: 740px) {
+    .profile__main {
+        grid-auto-flow: row;
+        grid-template-columns: none;
+    }
 }

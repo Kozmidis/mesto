@@ -5,3 +5,9 @@
     color: #545454;
     margin: 0;
 }
+
+@media all and (max-width: 740px) {
+    .footer__copyright {
+        margin-left: 19px;
+    }
+}
