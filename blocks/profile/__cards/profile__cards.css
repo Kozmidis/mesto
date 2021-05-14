@@ -4,3 +4,9 @@
     width: 282px;
     border-radius: 15px;
 }
+
+@media all and (max-width: 950px) {
+    .profile__cards {
+        justify-self: center;
+    }
+}

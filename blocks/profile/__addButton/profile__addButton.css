@@ -10,3 +10,10 @@
     margin-top: 35px;
     font-size: 22px;
 }
+
+@media all and (max-width: 700px) {
+    .profile__addButton {
+        width: 100%;
+        margin: 35px auto 0;
+    }
+}

@@ -1,8 +1,23 @@
 .profile__container {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, minmax(min-content, max-content));
     gap: 20px 17px;
     list-style-type: none;
     margin: 0;
     padding: 0;
+}
+
+@media all and (max-width: 950px) {
+    .profile__container {
+        grid-template-columns: repeat(2, minmax(min-content, max-content));
+        justify-content: center;
+        gap: 40px;
+    }
+}
+
+@media all and (max-width: 740px) {
+    .profile__container {
+        grid-template-columns: repeat(1, minmax(min-content, max-content));
+        gap: 20px;
+    }
 }
