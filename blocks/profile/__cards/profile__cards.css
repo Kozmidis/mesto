@@ -1,12 +1,23 @@
 .profile__cards {
-    background-color: white;
-    height: 361px;
-    width: 282px;
-    border-radius: 15px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(min-content, max-content));
+    gap: 20px 17px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 @media all and (max-width: 950px) {
     .profile__cards {
-        justify-self: center;
+        grid-template-columns: repeat(2, minmax(min-content, max-content));
+        justify-content: center;
+        gap: 40px;
+    }
+}
+
+@media all and (max-width: 740px) {
+    .profile__cards {
+        grid-template-columns: repeat(1, minmax(min-content, max-content));
+        gap: 20px;
     }
 }

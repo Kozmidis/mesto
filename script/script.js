@@ -1,7 +1,6 @@
 let editButton = document.querySelector(".profile__redact");
 let popup = document.querySelector(".popup");
 let closeModal = document.querySelector(".popup__close");
-let submitButton = document.querySelector(".submit__button");
 
 
 
