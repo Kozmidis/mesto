@@ -3,11 +3,13 @@
     grid-auto-flow: column;
     width: 100%;
     grid-template-columns: minmax(min-content, max-content);
+    margin-bottom: 47px;
 }
 
 @media all and (max-width: 740px) {
     .profile__main {
         grid-auto-flow: row;
         grid-template-columns: none;
+        margin-bottom: 36px;
     }
 }
