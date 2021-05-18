@@ -17,10 +17,15 @@
         <div class="profile">
             <div class="profile__main">
                 <img class="profile__main-avatar" src="./images/kusto.svg" alt="аватар">
-                <div class="profile__main-info">
-                    <h1 class="profile__name">Жак-Ив Кусто <span class="redact"><a class="profile__redact" href="#" target="_self"><img class="profile__redact-image" src="./images/editButton.svg" alt="редактировать"></a></span></h1>
-                    <p class="profile__aboutMe">Исследователь океана</p>
+                <div class="profile__edit-panel">
+                    <div class="profile__main-info">
+                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+
+                        <p class="profile__aboutMe">Исследователь океана</p>
+                    </div>
+                    <a class="profile__redact" href="#" target="_self"><img class="profile__redact-image" src="./images/editButton.svg" alt="редактировать"></a>
                 </div>
+
                 <a href="#" target="_self" class="profile__addButton"><img src="./images/AddButton.svg" alt="добавить"></a>
             </div>
 
@@ -75,14 +80,12 @@
     </footer>
     <div class="popup popup_closed">
         <div class="popup__container">
-            <div class="popup__form">
+            <form class="popup__form" id="form">
                 <h2 class="popup__form-title">Редактировать профиль</h2>
-                <p class="popup__form-name">Жак-Ив Кусто</p>
-                <p class="popup__form-aboutMe">Исследователь океана</p>
-                <div class="submit__button">
-                    <a href="#" class="submit__button-text">Сохранить</a>
-                </div>
-            </div>
+                <input form="form" type="text" class="popup__form-name" required>
+                <input form="form" type="text" class="popup__form-aboutMe" required>
+                <button form="form" class="submit__button" type="submit">Сохранить</button>
+            </form>
             <a class="popup__close" href="#"><img class="popup__close-image" src="./images/close.svg" alt="закрыть"></a>
         </div>
     </div>

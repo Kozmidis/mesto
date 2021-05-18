@@ -4,3 +4,11 @@
     line-height: 29px;
     margin: 0px 0px 54px;
 }
+
+@media all and (max-width: 700px) {
+    .popup__form-title {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 75px;
+    }
+}

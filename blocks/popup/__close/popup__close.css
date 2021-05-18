@@ -9,3 +9,10 @@
     transform: rotate(45deg);
     transition: transform 0.3s ease-in;
 }
+
+@media all and (max-width: 700px) {
+    .popup__close {
+        top: -45px;
+        right: 0;
+    }
+}

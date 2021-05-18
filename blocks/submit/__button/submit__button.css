@@ -1,11 +1,27 @@
 .submit__button {
+    border: none;
     width: 358px;
     height: 50px;
     background-color: #000000;
     color: white;
     border-radius: 2px;
+    text-decoration: none;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 50px;
+    display: block;
+    text-align: center;
 }
 
 .submit__button:hover {
     opacity: 0.6;
+}
+
+@media all and (max-width: 700px) {
+    .submit__button {
+        width: 238px;
+        height: 46px;
+        font-size: 14px;
+        line-height: 46px;
+    }
 }

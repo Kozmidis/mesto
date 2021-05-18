@@ -1,0 +1,9 @@
+    .profile__edit-panel {
+        display: flex;
+    }
+    
+    @media all and (max-width: 740px) {
+        .profile__edit-panel {
+            justify-content: center;
+        }
+    }

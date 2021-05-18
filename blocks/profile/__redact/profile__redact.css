@@ -1,7 +1,18 @@
 .profile__redact {
     justify-content: center;
+    width: 24px;
+    height: 24px;
+    margin: 38px 0 0 18px;
 }
 
 .profile__redact:hover {
     opacity: 0.6;
+}
+
+@media all and (max-width: 740px) {
+    .profile__redact {
+        width: 18px;
+        height: 18px;
+        margin: 31px 0 0 15px;
+    }
 }
