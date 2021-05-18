@@ -12,6 +12,10 @@
     justify-self: end;
 }
 
+.profile__addButton:hover {
+    opacity: 0.6;
+}
+
 @media all and (max-width: 740px) {
     .profile__addButton {
         width: 100%;
