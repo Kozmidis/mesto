@@ -1,13 +1,18 @@
-.profile__aboutMe {
+.profile__about-me {
     margin: 0;
     padding: 0;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
+    text-overflow: ellipsis;
+    max-width: 330px;
+    overflow: hidden;
+    white-space: nowrap
 }
 
 @media all and (max-width: 740px) {
-    .profile__aboutMe {
+    .profile__about-me {
+        max-width: 220px;
         font-size: 14px;
         line-height: 17px;
         text-align: center;

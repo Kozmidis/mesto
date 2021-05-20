@@ -3,6 +3,11 @@
     width: 24px;
     height: 24px;
     margin: 38px 0 0 18px;
+    background: transparent;
+    background-image: url(../../../images/editButton.svg);
+    border: none;
+    padding: 0px;
+    cursor: pointer;
 }
 
 .profile__redact:hover {
@@ -13,6 +18,7 @@
     .profile__redact {
         width: 18px;
         height: 18px;
+        background-size: 18px;
         margin: 31px 0 0 15px;
     }
 }

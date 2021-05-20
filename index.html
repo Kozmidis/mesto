@@ -16,61 +16,62 @@
     <main class="content">
         <section class="profile">
             <div class="profile__main">
-                <img class="profile__main-avatar" src="./images/kusto.svg" alt="аватар">
+                <img class="profile__main-avatar" src="./images/avatar.png" alt="аватар">
                 <div class="profile__edit-panel">
                     <div class="profile__main-info">
                         <h1 class="profile__name">Жак-Ив Кусто</h1>
 
-                        <p class="profile__aboutMe">Исследователь океана</p>
+                        <p class="profile__about-me">Исследователь океана</p>
                     </div>
-                    <a class="profile__redact" href="#" target="_self"><img class="profile__redact-image" src="./images/editButton.svg" alt="редактировать"></a>
+                    <button type="button" class="profile__redact"></button>
                 </div>
 
-                <a href="#" target="_self" class="profile__addButton"><img src="./images/AddButton.svg" alt="добавить"></a>
+                <button type="button" class="profile__add-button"></button>
             </div>
+        </section>
 
-
-            <ul class="profile__cards">
-                <li class="profile__card">
-                    <img src="./images/Karachaevsk.png" alt="Карачаевск" class="profile__card-image">
-                    <div class="profile__likebar">
-                        <p class="profile__card-name">Карачаевск</p>
-                        <a href="#" class="profile__card-like"><img src="./images/like.svg" alt="нравится"></a>
+        <section class="photos">
+            <ul class="photos__cards">
+                <li class="photos__card">
+                    <img src="./images/Karachaevsk.png" alt="Карачаевск" class="photos__card-image">
+                    <div class="photos__likebar">
+                        <h2 class="photos__card-name">Карачаевск</h2>
+                        <button type="button" class="photos__card-like"></button>
                     </div>
                 </li>
-                <li class="profile__card">
-                    <img src="./images/elbrus.png" alt="Эльбрус" class="profile__card-image">
-                    <div class="profile__likebar">
-                        <p class="profile__card-name">Гора Эльбрус</p>
-                        <a href="#" class="profile__card-like"><img src="./images/like.svg" alt="нравится"></a>
+                <li class="photos__card">
+                    <img src="./images/elbrus.png" alt="Эльбрус" class="photos__card-image">
+                    <div class="photos__likebar">
+                        <h2 class="photos__card-name">Гора Эльбрус</h2>
+                        <button type="button" class="photos__card-like"></button>
                     </div>
                 </li>
-                <li class="profile__card">
-                    <img src="./images/dombay.png" alt="Домбай" class="profile__card-image">
-                    <div class="profile__likebar">
-                        <p class="profile__card-name">Домбай</p>
-                        <a href="#" class="profile__card-like"><img src="./images/like.svg" alt="нравится"></a>
+                <li class="photos__card">
+                    <img src="./images/dombay.png" alt="Домбай" class="photos__card-image">
+                    <div class="photos__likebar">
+                        <h2 class="photos__card-name">Домбай</h2>
+                        <button type="button" class="photos__card-like"></button>
                     </div>
                 </li>
-                <li class="profile__card">
-                    <img src="./images/elbrus.png" alt="Эльбрус" class="profile__card-image">
-                    <div class="profile__likebar">
-                        <p class="profile__card-name">Гора Эльбрус</p>
-                        <a href="#" class="profile__card-like"><img src="./images/like.svg" alt="нравится"></a>
+                <li class="photos__card">
+                    <img src="./images/elbrus.png" alt="Эльбрус" class="photos__card-image">
+                    <div class="photos__likebar">
+                        <h2 class="photos__card-name">Гора Эльбрус</h2>
+                        <button type="button" class="photos__card-like"></button>
                     </div>
                 </li>
-                <li class="profile__card">
-                    <img src="./images/dombay.png" alt="Домбай" class="profile__card-image">
-                    <div class="profile__likebar">
-                        <p class="profile__card-name">Домбай</p>
-                        <a href="#" class="profile__card-like"><img src="./images/like.svg" alt="нравится"></a>
+                <li class="photos__card">
+                    <img src="./images/dombay.png" alt="Домбай" class="photos__card-image">
+                    <div class="photos__likebar">
+                        <h2 class="photos__card-name">Домбай</h2>
+                        <button type="button" class="photos__card-like"></button>
                     </div>
                 </li>
-                <li class="profile__card">
-                    <img src="./images/Karachaevsk.png" alt="Карачаевск" class="profile__card-image">
-                    <div class="profile__likebar">
-                        <p class="profile__card-name">Карачаево-Черкессия</p>
-                        <a href="#" class="profile__card-like"><img src="./images/like.svg" alt="нравится"></a>
+                <li class="photos__card">
+                    <img src="./images/Karachaevsk.png" alt="Карачаевск" class="photos__card-image">
+                    <div class="photos__likebar">
+                        <h2 class="photos__card-name">Карачаево-Черкессия</h2>
+                        <button type="button" class="photos__card-like"></button>
                     </div>
                 </li>
             </ul>
@@ -81,13 +82,13 @@
     </footer>
     <div class="popup popup_closed">
         <div class="popup__container">
-            <form class="popup__form" id="form">
+            <form class="popup__form" id="form" name="form">
                 <h2 class="popup__form-title">Редактировать профиль</h2>
-                <input form="form" type="text" class="popup__form-name" required>
-                <input form="form" type="text" class="popup__form-aboutMe" required>
-                <button form="form" class="popup__submitButton" type="submit">Сохранить</button>
+                <input form="form" type="text" class="popup__form-input popup__form-input_name" name="form" placeholder="Введите имя" required>
+                <input form="form" type="text" class="popup__form-input popup__form-input_job" name="form" placeholder="Расскажите о себе" required>
+                <button form="form" class="popup__submit-button" type="submit" name="form">Сохранить</button>
             </form>
-            <a class="popup__close" href="#"><img class="popup__close-image" src="./images/close.svg" alt="закрыть"></a>
+            <button type="button" class="popup__close"></button>
         </div>
     </div>
 

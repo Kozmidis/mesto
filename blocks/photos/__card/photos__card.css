@@ -1,12 +1,11 @@
-.profile__card {
+.photos__card {
     background-color: white;
-    height: 361px;
     width: 282px;
     border-radius: 15px;
 }
 
 @media all and (max-width: 950px) {
-    .profile__card {
+    .photos__card {
         justify-self: center;
     }
 }

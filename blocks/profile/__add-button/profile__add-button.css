@@ -1,8 +1,9 @@
-.profile__addButton {
+.profile__add-button {
     display: flex;
     text-decoration: none;
     color: white;
     border: 2px solid white;
+    border-radius: 2px;
     justify-content: center;
     align-items: center;
     height: 50px;
@@ -10,14 +11,20 @@
     margin-top: 35px;
     font-size: 22px;
     justify-self: end;
+    background: transparent;
+    background-image: url(../../../images/addbutton.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 0px;
+    cursor: pointer;
 }
 
-.profile__addButton:hover {
+.profile__add-button:hover {
     opacity: 0.6;
 }
 
 @media all and (max-width: 740px) {
-    .profile__addButton {
+    .profile__add-button {
         width: 100%;
         margin: 35px auto 0;
     }
