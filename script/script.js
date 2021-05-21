@@ -2,8 +2,8 @@ let editButton = document.querySelector(".profile__redact");
 let popup = document.querySelector(".popup");
 let closeModal = document.querySelector(".popup__close");
 let formElement = document.querySelector(".popup__form")
-let nameInput = document.querySelector(".popup__form-input_name")
-let jobInput = document.querySelector(".popup__form-input_job")
+let nameInput = document.querySelector(".popup__form-input_input_name")
+let jobInput = document.querySelector(".popup__form-input_input_job")
 let profileName = document.querySelector(".profile__name")
 let profileAbout = document.querySelector(".profile__about-me")
 

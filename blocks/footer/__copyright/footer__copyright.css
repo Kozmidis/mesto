@@ -1,7 +1,7 @@
 .footer__copyright {
     font-weight: normal;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 18px;
+    line-height: 22px;
     color: #545454;
     margin: 0;
 }
@@ -9,5 +9,7 @@
 @media all and (max-width: 740px) {
     .footer__copyright {
         margin-left: 19px;
+        font-size: 14px;
+        line-height: 17px;
     }
 }

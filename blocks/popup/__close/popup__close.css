@@ -9,6 +9,7 @@
     height: 40px;
     background-size: 40px;
     border: none;
+    padding: 0px;
 }
 
 .popup__close:hover {
