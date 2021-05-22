@@ -5,9 +5,10 @@
     background: transparent;
     background-image: url(../../../images/close.svg);
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     background-size: 40px;
+    transform: rotate(-45deg);
     border: none;
     padding: 0px;
 }
@@ -21,7 +22,7 @@
         width: 26px;
         height: 26px;
         background-size: 26px;
-        top: -45px;
+        top: -40px;
         right: 0;
     }
 }
