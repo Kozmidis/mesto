@@ -8,6 +8,47 @@ let profileName = document.querySelector(".profile__name")
 let profileAbout = document.querySelector(".profile__about-me")
 
 
+
+
+const templatePhotos = document.querySelector('#template-photos').content
+const listPhotos = document.querySelector('.photos__cards')
+
+
+
+
+const initialCards = [{
+        name: 'Архыз',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+    },
+    {
+        name: 'Челябинская область',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+    },
+    {
+        name: 'Иваново',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+    },
+    {
+        name: 'Камчатка',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+    },
+    {
+        name: 'Холмогорский район',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+    },
+    {
+        name: 'Байкал',
+        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+    }
+];
+initialCards.forEach(function(card) {
+    const photoElements = templatePhotos.cloneNode(true)
+    const likeButton = document.querySelector('.photos__card-like')
+    photoElements.querySelector('.photos__card-image').src = card.link
+    photoElements.querySelector('.photos__card-name').textContent = card.name
+    listPhotos.append(photoElements)
+})
+
 function popupOpen() {
     if (popup.classList.contains('popup_closed')) {
 
@@ -33,6 +74,7 @@ function formSubmitHandler(evt) {
     profileAbout.textContent = jobInput.value
     popupClose()
 }
+
 
 editButton.addEventListener('click', popupOpen);
 closeModal.addEventListener('click', popupClose);
