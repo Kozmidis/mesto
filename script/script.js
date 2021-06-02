@@ -103,10 +103,11 @@ function addCards() {
         photoElements.querySelector('.photos__card-image').src = card.link
         photoElements.querySelector('.photos__card-name').textContent = card.name
         photoElements.querySelector('.photos__card-image').alt = card.name
-
+        photoElements.querySelector('.photos__remove-button')
         photoElements.querySelector('.photos__card-like').addEventListener('click', function(evt) {
             evt.target.classList.toggle("photos__card-like_active");
         });
+        setEventListeners(photoElements)
         listPhotos.prepend(photoElements)
 
     })
@@ -127,6 +128,13 @@ function createCardHandler(evt) {
     popupAddClose()
 }
 
+function handleDelete(evt) {
+    evt.target.closest('.photos__card').remove();
+}
+
+function setEventListeners(element) {
+    element.querySelector('.photos__remove-button').addEventListener('click', handleDelete)
+}
 
 editButton.addEventListener('click', popupEditOpen);
 formElement.addEventListener('submit', formSubmitHandler);

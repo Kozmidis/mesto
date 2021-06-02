@@ -19,6 +19,7 @@
 @import url(../blocks/photos/__card-name/photos__card-name.css);
 @import url(../blocks/photos/__card-like/photos__card-like.css);
 @import url(../blocks/photos/__card-like/_active/photos__card-like_active.css);
+@import url(../blocks/photos/__remove-button/photos__remove-button.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/popup/popup.css);
