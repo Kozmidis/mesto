@@ -49,9 +49,7 @@ const initialCards = [{
 ];
 
 
-
-const initCards = initialCards.slice()
-    //модальное окно редактирования профиля (открыть/закрыть/сохранить)
+//модальное окно редактирования профиля (открыть/закрыть/сохранить)
 
 function popupEditOpen() {
     if (!(popupEdit.classList.contains('popup_opened'))) {
