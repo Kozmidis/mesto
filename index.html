@@ -39,15 +39,26 @@
     <footer class="footer">
         <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
     </footer>
-    <div class="popup popup_closed">
+    <div class="popup" id="popup__edit">
         <div class="popup__container">
-            <form class="popup__form" id="form" name="popup">
+            <form class="popup__form" id="formEdit" name="popupEdit">
                 <h2 class="popup__form-title">Редактировать профиль</h2>
-                <input form="form" type="text" class="popup__form-input popup__form-input_input_name" name="user" placeholder="Введите имя" required>
-                <input form="form" type="text" class="popup__form-input popup__form-input_input_job" name="userjob" placeholder="Расскажите о себе" required>
-                <button form="form" class="popup__submit-button" type="submit" name="form">Сохранить</button>
+                <input form="formEdit" type="text" class="popup__form-input popup__form-input_input_name" name="user" placeholder="Введите имя" required>
+                <input form="formEdit" type="text" class="popup__form-input popup__form-input_input_job" name="userjob" placeholder="Расскажите о себе" required>
+                <button form="formEdit" class="popup__submit-button" type="submit" name="submit">Сохранить</button>
             </form>
-            <button type="button" class="popup__close"></button>
+            <button type="button" class="popup__close popup__close_edit"></button>
+        </div>
+    </div>
+    <div class="popup" id="popup__add">
+        <div class="popup__container">
+            <form class="popup__form" id="formAdd" name="popupAdd">
+                <h2 class="popup__form-title">Новое место</h2>
+                <input form="formAdd" type="text" class="popup__form-input popup__form-input_input_place" name="place" placeholder="Название" required>
+                <input form="formAdd" type="text" class="popup__form-input popup__form-input_input_image" name="image" placeholder="Ссылка на картинку" required>
+                <button form="formAdd" class="popup__submit-button" type="submit" name="create">Создать</button>
+            </form>
+            <button type="button" class="popup__close popup__close_add"></button>
         </div>
     </div>
 
