@@ -14,6 +14,7 @@ const popupAdd = document.querySelector("#popup__add");
 const formCreateElement = document.querySelector("#formAdd");
 const placeInput = document.querySelector(".popup__form-input_input_place");
 const imageInput = document.querySelector(".popup__form-input_input_image");
+const popupContainer = document.querySelector(".popup__content");
 
 const templatePhotos = document.querySelector("#template-photos").content;
 const listPhotos = document.querySelector(".photos__cards");
@@ -50,10 +51,15 @@ const initialCards = [{
 // функции закрытия и открытия попапов
 function openModal(modal) {
     modal.classList.add("popup_opened");
+    document.addEventListener("keyup", keyHandler);
+
+    modal.addEventListener("click", popupOverlay);
 }
 
 function closeModal(modal) {
     modal.classList.remove("popup_opened");
+    document.removeEventListener("keyup", keyHandler);
+    modal.removeEventListener("click", popupOverlay);
 }
 
 function popupEditOpen() {
@@ -152,3 +158,18 @@ closeAddModal.addEventListener("click", popupAddClose);
 closeImageModal.addEventListener("click", popupImageClose);
 addButton.addEventListener("click", popupAddOpen);
 formCreateElement.addEventListener("submit", createCardHandler);
+
+const keyHandler = (evt) => {
+    if (evt.key === "Escape" || !evt.target === "popupContainer") {
+        const popupActive = document.querySelector(".popup_opened");
+        popupActive.classList.remove("popup_opened");
+    }
+};
+
+
+
+const popupOverlay = (evt) => {
+    if (!(evt.target === popupContainer)) {
+        closeModal(evt.target);
+    }
+};
