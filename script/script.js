@@ -70,6 +70,10 @@ function handleProfileFormSubmit(evt) {
     closeEditPopup();
 }
 
+function handleCardLike(evt) {
+    evt.target.classList.toggle("photos__card-like_active");
+}
+
 function renderCards() {
     initialCards.forEach(createCard)
 
@@ -77,11 +81,11 @@ function renderCards() {
 
 renderCards();
 
-function handleCardLike(evt) {
-    evt.target.classList.toggle("photos__card-like_active");
+
+
+function addCard(item) {
+    listPhotos.prepend(item)
 }
-
-
 
 function createCard({ name, link }) {
     const photoElements = templatePhotos.cloneNode(true);
@@ -103,7 +107,7 @@ function createCard({ name, link }) {
     });
 
     photoElements.querySelector(".photos__remove-button").addEventListener("click", handleDelete);
-    listPhotos.prepend(photoElements);
+    return addCard(photoElements);
 }
 
 function createCardHandler(evt) {

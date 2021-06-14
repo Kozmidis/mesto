@@ -34,8 +34,8 @@ const setEventListeners = (formElement) => {
     });
 };
 
-function enableValidation() {
-    const formList = Array.from(document.querySelectorAll(".popup__form"));
+function enableValidation(config) {
+    const formList = Array.from(document.querySelectorAll(config.form));
     formList.forEach((formElement) => {
         formElement.addEventListener("submit", (evt) => {
             evt.preventDefault();
@@ -44,7 +44,19 @@ function enableValidation() {
         setEventListeners(formElement);
     });
 }
-enableValidation();
+enableValidation({
+    form: '.popup__form[name="popupEdit"]',
+    user: '.popup__form-input_input_name[name="user"]',
+    userjob: '.popup__form-input_input_job[name="userjob"]',
+    submitButton: '.popup__submit-button[name="submit"]'
+});
+
+enableValidation({
+    form: '.popup__form[name="popupAdd"]',
+    place: '.popup__form-input_input_place[name="place"]',
+    image: '.popup__form-input_input_image[name="image"]',
+    submitButton: '.popup__submit-button[name="create"]'
+});
 
 function hasInvalidInput(inputList) {
     return inputList.some((inputElement) => {
