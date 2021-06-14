@@ -44,9 +44,9 @@
             <form class="popup__form" id="formEdit" name="popupEdit" novalidate>
                 <h2 class="popup__form-title">Редактировать профиль</h2>
                 <input id="user" form="formEdit" type="text" class="popup__form-input popup__form-input_input_name" name="user" placeholder="Введите имя" minlength="2" maxlength="40" required>
-                <span class="user-error"></span>
+                <span class="popup__form-input-error user-error"></span>
                 <input id="userjob" form="formEdit" type="text" class="popup__form-input popup__form-input_input_job" name="userjob" placeholder="Расскажите о себе" minlength="2" maxlength="200" required>
-                <span class="userjob-error"></span>
+                <span class="popup__form-input-error userjob-error"></span>
                 <button form="formEdit" class="popup__submit-button" type="submit" name="submit">Сохранить</button>
             </form>
             <button type="button" class="popup__close popup__close_edit"></button>
@@ -57,9 +57,9 @@
             <form class="popup__form" id="formAdd" name="popupAdd" novalidate>
                 <h2 class="popup__form-title">Новое место</h2>
                 <input id="place" form="formAdd" type="text" class="popup__form-input popup__form-input_input_place" name="place" placeholder="Название" minlength="2" maxlength="30" required>
-                <span class="place-error"></span>
+                <span class="popup__form-input-error place-error"></span>
                 <input type="url" id="image" form="formAdd" class="popup__form-input popup__form-input_input_image" name="image" placeholder="Ссылка на картинку" required>
-                <span class="image-error"></span>
+                <span class="popup__form-input-error image-error"></span>
                 <button form="formAdd" class="popup__submit-button" type="submit" name="create">Создать</button>
             </form>
             <button type="button" class="popup__close popup__close_add"></button>
@@ -86,9 +86,11 @@
                 </li>
     </template>
 
-    <script src="./script/script.js">
+    <script src="./script/initial-сards.js">
     </script>
     <script src="./script/validate.js">
+    </script>
+    <script src="./script/script.js">
     </script>
 </body>
 

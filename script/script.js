@@ -1,7 +1,7 @@
 const editButton = document.querySelector(".profile__redact");
 const popupEdit = document.querySelector("#popup__edit");
 const closeEditModal = document.querySelector(".popup__close_edit");
-const formElement = document.querySelector("#formEdit");
+const formEditElement = document.querySelector("#formEdit");
 const nameInput = document.querySelector(".popup__form-input_input_name");
 const jobInput = document.querySelector(".popup__form-input_input_job");
 const profileName = document.querySelector(".profile__name");
@@ -22,33 +22,6 @@ const popupImage = document.querySelector("#popup__image");
 const popupImg = document.querySelector(".popup__image");
 const popupImgName = document.querySelector(".popup__image-name");
 
-const initialCards = [{
-        name: "Архыз",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg",
-    },
-    {
-        name: "Челябинская область",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg",
-    },
-    {
-        name: "Иваново",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg",
-    },
-    {
-        name: "Камчатка",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg",
-    },
-    {
-        name: "Холмогорский район",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg",
-    },
-    {
-        name: "Байкал",
-        link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
-    },
-];
-
-// функции закрытия и открытия попапов
 function openModal(modal) {
     modal.classList.add("popup_opened");
     document.addEventListener("keyup", keyHandler);
@@ -62,107 +35,104 @@ function closeModal(modal) {
     modal.removeEventListener("click", popupOverlay);
 }
 
-function popupEditOpen() {
+function openEditPopup() {
     openModal(popupEdit);
     nameInput.value = profileName.textContent;
     jobInput.value = profileAbout.textContent;
 }
 
-function popupEditClose() {
+function closeEditPopup() {
     closeModal(popupEdit);
 }
 
-function popupAddOpen() {
+function openAddPopup() {
     openModal(popupAdd);
 }
 
-function popupAddClose() {
+function closeAddPopup() {
     closeModal(popupAdd);
+    formCreateElement.reset()
 }
 
-function popupOpenImage() {
+function openImagePopup() {
     openModal(popupImage);
 }
 
-function popupImageClose() {
+function closeImagePopup() {
     closeModal(popupImage);
 }
 
-function formSubmitHandler(evt) {
+function handleProfileFormSubmit(evt) {
     evt.preventDefault();
 
     profileName.textContent = nameInput.value;
     profileAbout.textContent = jobInput.value;
-    popupEditClose();
+    closeEditPopup();
 }
 
 function renderCards() {
-    initialCards.forEach(createCard);
+    initialCards.forEach(createCard)
+
 }
 
 renderCards();
 
+function handleCardLike(evt) {
+    evt.target.classList.toggle("photos__card-like_active");
+}
+
+
+
 function createCard({ name, link }) {
     const photoElements = templatePhotos.cloneNode(true);
-    photoElements.querySelector(".photos__card-like");
-    photoElements.querySelector(".photos__card-image").src = link;
+    const cardImage = photoElements.querySelector(".photos__card-image")
+    const cardLike = photoElements.querySelector(".photos__card-like");
+    cardImage.src = link;
     photoElements.querySelector(".photos__card-name").textContent = name;
-    photoElements.querySelector(".photos__card-image").alt = name;
+    cardImage.alt = name;
     photoElements.querySelector(".photos__remove-button");
 
-    photoElements
-        .querySelector(".photos__card-like")
-        .addEventListener("click", function(evt) {
-            evt.target.classList.toggle("photos__card-like_active");
-        });
+    cardLike.addEventListener("click", handleCardLike)
 
-    photoElements
-        .querySelector(".photos__card-image")
-        .addEventListener("click", function(evt) {
-            evt.target.closest(".popup__image");
-            popupImg.src = link;
-            popupImg.alt = name;
-            popupImgName.textContent = name;
-            popupOpenImage();
-        });
+    cardImage.addEventListener("click", function(evt) {
+        evt.target.closest(".popup__image");
+        popupImg.src = link;
+        popupImg.alt = name;
+        popupImgName.textContent = name;
+        openImagePopup();
+    });
 
-    function setEventListeners(element) {
-        element
-            .querySelector(".photos__remove-button")
-            .addEventListener("click", handleDelete);
-    }
-
-    setEventListeners(photoElements);
+    photoElements.querySelector(".photos__remove-button").addEventListener("click", handleDelete);
     listPhotos.prepend(photoElements);
 }
 
 function createCardHandler(evt) {
     evt.preventDefault();
-    let name = placeInput.value;
-    let link = imageInput.value;
+    const name = placeInput.value;
+    const link = imageInput.value;
 
     createCard({ name, link });
-    placeInput.value = "";
-    imageInput.value = "";
-    popupAddClose();
+    formCreateElement.reset()
+    closeAddPopup();
+    setEventListeners(formCreateElement)
 }
 
 function handleDelete(evt) {
     evt.target.closest(".photos__card").remove();
 }
 
-editButton.addEventListener("click", popupEditOpen);
-formElement.addEventListener("submit", formSubmitHandler);
-closeEditModal.addEventListener("click", popupEditClose);
-closeAddModal.addEventListener("click", popupAddClose);
-closeImageModal.addEventListener("click", popupImageClose);
-addButton.addEventListener("click", popupAddOpen);
+editButton.addEventListener("click", openEditPopup);
+formEditElement.addEventListener("submit", handleProfileFormSubmit);
+closeEditModal.addEventListener("click", closeEditPopup);
+closeAddModal.addEventListener("click", closeAddPopup);
+closeImageModal.addEventListener("click", closeImagePopup);
+addButton.addEventListener("click", openAddPopup);
 formCreateElement.addEventListener("submit", createCardHandler);
 
 const keyHandler = (evt) => {
     if (evt.key === "Escape" || !evt.target === "popupContainer") {
         const popupActive = document.querySelector(".popup_opened");
-        popupActive.classList.remove("popup_opened");
+        closeModal(popupActive);
     }
 };
 
