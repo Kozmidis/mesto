@@ -21,6 +21,8 @@ const listPhotos = document.querySelector(".photos__cards");
 const popupImage = document.querySelector("#popup__image");
 const popupImg = document.querySelector(".popup__image");
 const popupImgName = document.querySelector(".popup__image-name");
+const createButton = document.querySelector('.popup__submit-button[name="create"]')
+const submitButton = document.querySelector('.popup__submit-button[name="submit"]')
 
 function openModal(modal) {
     modal.classList.add("popup_opened");
@@ -67,6 +69,7 @@ function handleProfileFormSubmit(evt) {
 
     profileName.textContent = nameInput.value;
     profileAbout.textContent = jobInput.value;
+    deactiveButton(popupEdit, submitButton, config)
     closeEditPopup();
 }
 
@@ -119,8 +122,10 @@ function createCardHandler(evt) {
     const link = imageInput.value;
 
     addCard(createCard({ name, link }))
+    deactiveButton(formCreateElement, createButton, config)
     formCreateElement.reset()
     closeAddPopup();
+
 }
 
 function handleDelete(evt) {

@@ -71,3 +71,8 @@ function toggleButtonState(inputList, buttonElement, config) {
         buttonElement.removeAttribute("disabled");
     }
 }
+
+function deactiveButton(formElement, buttonElement, config) {
+    buttonElement.classList.add(config.inactiveButtonClass);
+    buttonElement.setAttribute("disabled", "disabled");
+}
