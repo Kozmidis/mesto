@@ -75,7 +75,10 @@ function handleCardLike(evt) {
 }
 
 function renderCards() {
-    initialCards.forEach(createCard)
+    initialCards.forEach(item => {
+        const card = createCard(item);
+        addCard(card);
+    });
 
 }
 
@@ -107,7 +110,7 @@ function createCard({ name, link }) {
     });
 
     photoElements.querySelector(".photos__remove-button").addEventListener("click", handleDelete);
-    return addCard(photoElements);
+    return photoElements;
 }
 
 function createCardHandler(evt) {
@@ -115,7 +118,7 @@ function createCardHandler(evt) {
     const name = placeInput.value;
     const link = imageInput.value;
 
-    createCard({ name, link });
+    addCard(createCard({ name, link }))
     formCreateElement.reset()
     closeAddPopup();
 }
