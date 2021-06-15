@@ -118,7 +118,6 @@ function createCardHandler(evt) {
     createCard({ name, link });
     formCreateElement.reset()
     closeAddPopup();
-    setEventListeners(formCreateElement)
 }
 
 function handleDelete(evt) {
