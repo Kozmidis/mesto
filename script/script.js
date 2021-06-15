@@ -21,8 +21,12 @@ const listPhotos = document.querySelector(".photos__cards");
 const popupImage = document.querySelector("#popup__image");
 const popupImg = document.querySelector(".popup__image");
 const popupImgName = document.querySelector(".popup__image-name");
-const createButton = document.querySelector('.popup__submit-button[name="create"]')
-const submitButton = document.querySelector('.popup__submit-button[name="submit"]')
+const createButton = document.querySelector(
+    '.popup__submit-button[name="create"]'
+);
+const submitButton = document.querySelector(
+    '.popup__submit-button[name="submit"]'
+);
 
 function openModal(modal) {
     modal.classList.add("popup_opened");
@@ -53,7 +57,7 @@ function openAddPopup() {
 
 function closeAddPopup() {
     closeModal(popupAdd);
-    formCreateElement.reset()
+    formCreateElement.reset();
 }
 
 function openImagePopup() {
@@ -69,7 +73,7 @@ function handleProfileFormSubmit(evt) {
 
     profileName.textContent = nameInput.value;
     profileAbout.textContent = jobInput.value;
-    deactiveButton(popupEdit, submitButton, config)
+    deactiveButton(popupEdit, submitButton, config);
     closeEditPopup();
 }
 
@@ -78,31 +82,28 @@ function handleCardLike(evt) {
 }
 
 function renderCards() {
-    initialCards.forEach(item => {
+    initialCards.forEach((item) => {
         const card = createCard(item);
         addCard(card);
     });
-
 }
 
 renderCards();
 
-
-
 function addCard(item) {
-    listPhotos.prepend(item)
+    listPhotos.prepend(item);
 }
 
 function createCard({ name, link }) {
     const photoElements = templatePhotos.cloneNode(true);
-    const cardImage = photoElements.querySelector(".photos__card-image")
+    const cardImage = photoElements.querySelector(".photos__card-image");
     const cardLike = photoElements.querySelector(".photos__card-like");
     cardImage.src = link;
     photoElements.querySelector(".photos__card-name").textContent = name;
     cardImage.alt = name;
     photoElements.querySelector(".photos__remove-button");
 
-    cardLike.addEventListener("click", handleCardLike)
+    cardLike.addEventListener("click", handleCardLike);
 
     cardImage.addEventListener("click", function(evt) {
         evt.target.closest(".popup__image");
@@ -112,7 +113,9 @@ function createCard({ name, link }) {
         openImagePopup();
     });
 
-    photoElements.querySelector(".photos__remove-button").addEventListener("click", handleDelete);
+    photoElements
+        .querySelector(".photos__remove-button")
+        .addEventListener("click", handleDelete);
     return photoElements;
 }
 
@@ -121,11 +124,10 @@ function createCardHandler(evt) {
     const name = placeInput.value;
     const link = imageInput.value;
 
-    addCard(createCard({ name, link }))
-    deactiveButton(formCreateElement, createButton, config)
-    formCreateElement.reset()
+    addCard(createCard({ name, link }));
+    deactiveButton(formCreateElement, createButton, config);
+    formCreateElement.reset();
     closeAddPopup();
-
 }
 
 function handleDelete(evt) {
@@ -146,8 +148,6 @@ const keyHandler = (evt) => {
         closeModal(popupActive);
     }
 };
-
-
 
 const popupOverlay = (evt) => {
     if (!(evt.target === popupContainer)) {

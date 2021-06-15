@@ -1,10 +1,10 @@
 const config = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__form-input',
-    submitButtonSelector: '.popup__submit-button',
-    inactiveButtonClass: 'popup__submit-button_inactive',
-    inputErrorClass: 'popup__form-input_type_error',
-    errorClass: 'popup__form-input-error_active'
+    formSelector: ".popup__form",
+    inputSelector: ".popup__form-input",
+    submitButtonSelector: ".popup__submit-button",
+    inactiveButtonClass: "popup__submit-button_inactive",
+    inputErrorClass: "popup__form-input_type_error",
+    errorClass: "popup__form-input-error_active",
 };
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
@@ -23,7 +23,12 @@ const hideInputError = (formElement, inputElement, config) => {
 
 const checkInputValidity = (formElement, inputElement) => {
     if (!inputElement.validity.valid) {
-        showInputError(formElement, inputElement, inputElement.validationMessage, config);
+        showInputError(
+            formElement,
+            inputElement,
+            inputElement.validationMessage,
+            config
+        );
     } else {
         hideInputError(formElement, inputElement, config);
     }
