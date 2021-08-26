@@ -67,7 +67,7 @@ function openImagePopup() {
 function closeImagePopup() {
     closeModal(popupImage);
 }
-
+////////////////////////////!!!!!!!!!!!!!!!!!!!/////////////////////////////////////////
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
 
@@ -76,7 +76,7 @@ function handleProfileFormSubmit(evt) {
     deactiveButton(popupEdit, submitButton, config);
     closeEditPopup();
 }
-
+// //////////////////////////////////////////!@!#@!##!??????????//////////
 function handleCardLike(evt) {
     evt.target.classList.toggle("photos__card-like_active");
 }
