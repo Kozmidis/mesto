@@ -59,9 +59,6 @@ formAddButton.addEventListener("submit", (evt) => {
     listPhotos.prepend(card.createCard());
 
     formAddButton.reset();
-    const subButton = document.querySelector(".popup__submit-button");
-    const validAdd = new FormValidator(config, popupAdd);
-    validAdd.deactiveButton(subButton);
     popupAdd.close();
 });
 
