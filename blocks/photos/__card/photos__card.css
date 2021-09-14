@@ -10,3 +10,8 @@
         justify-self: center;
     }
 }
+
+.photos__card:hover {
+    opacity: 0.7;
+    transition: linear, 1s;
+}
