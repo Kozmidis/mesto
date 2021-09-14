@@ -1,7 +1,8 @@
-import { Popup, Card } from "./entities/index.js";
-import { initialCards } from "./initial-сards.js";
-import { config } from "./entities/index.js";
-import { FormValidator } from "./entities/validate.js";
+import { Popup, Card } from "./entities/constants.js";
+import { FormValidator } from "./entities/FormValidator.js";
+import { initialCards, config, nameInput, jobInput, cardName, cardLink } from "./entities/constants.js"
+
+
 
 (function initCards() {
     const listPhotos = document.querySelector(".photos__cards");
@@ -12,6 +13,14 @@ import { FormValidator } from "./entities/validate.js";
     });
 })();
 
+function resetForm(form, popup, button) {
+    form.reset()
+    popup.close()
+    const buttonElement = form.querySelector(`${config.submitButtonSelector}[name=${button}]`)
+    buttonElement.classList.add(config.inactiveButtonClass);
+    buttonElement.setAttribute("disabled", "disabled");
+}
+
 // обработчики попапа редактирования
 const popupEdit = new Popup("#popup__edit");
 const editModalButtons = {
@@ -20,26 +29,22 @@ const editModalButtons = {
 };
 const formEditButton = document.querySelector("#formEdit");
 editModalButtons.open.addEventListener("click", () => {
-    const nameInput = document.querySelector(".popup__form-input_input_name");
-    const jobInput = document.querySelector(".popup__form-input_input_job");
     nameInput.value = document.querySelector(".profile__name").textContent;
     jobInput.value = document.querySelector(".profile__about-me").textContent;
+
     popupEdit.open();
 });
-editModalButtons.close.addEventListener("click", popupEdit.close);
+editModalButtons.close.addEventListener("click", () => {
+    popupEdit.close()
+});
 formEditButton.addEventListener("submit", (evt) => {
     evt.preventDefault();
-    const nameInput = document.querySelector(".popup__form-input_input_name");
-    const jobInput = document.querySelector(".popup__form-input_input_job");
 
     document.querySelector(".profile__name").textContent = nameInput.value;
     document.querySelector(".profile__about-me").textContent = jobInput.value;
-    formEditButton.reset();
-    popupEdit.close();
-    const button = document.querySelector('.popup__submit-button[name="submit"]')
-    button.classList.add(config.inactiveButtonClass);
-    button.setAttribute("disabled", "disabled");
 
+    const button = 'submit'
+    resetForm(formEditButton, popupEdit, button)
 });
 
 // обработчики попапа добавления карточек
@@ -54,18 +59,14 @@ addModalButtons.open.addEventListener("click", popupAdd.open);
 addModalButtons.close.addEventListener("click", popupAdd.close);
 formAddButton.addEventListener("submit", (evt) => {
     evt.preventDefault();
-    const name = document.querySelector(".popup__form-input_input_place").value;
-    const link = document.querySelector(".popup__form-input_input_image").value;
+    const name = cardName.value;
+    const link = cardLink.value
 
     const card = new Card({ name, link });
     const listPhotos = document.querySelector(".photos__cards");
     listPhotos.prepend(card.createCard());
-
-    formAddButton.reset();
-    popupAdd.close();
-    const button = document.querySelector('.popup__submit-button[name="create"]')
-    button.classList.add(config.inactiveButtonClass);
-    button.setAttribute("disabled", "disabled");
+    const button = 'create'
+    resetForm(formAddButton, popupAdd, button)
 });
 
 const validAdd = new FormValidator(config, popupAdd);
