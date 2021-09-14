@@ -2,6 +2,7 @@ export { Popup }
 from "./Popup.js";
 export { Card }
 from "./Card.js";
+// перенос строки у экспорта осуществляет авторедактирование в VSCode
 export { initialCards, config, nameInput, jobInput, cardName, cardLink }
 
 const initialCards = [{
