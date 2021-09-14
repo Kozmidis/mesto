@@ -35,8 +35,11 @@ formEditButton.addEventListener("submit", (evt) => {
     document.querySelector(".profile__name").textContent = nameInput.value;
     document.querySelector(".profile__about-me").textContent = jobInput.value;
     formEditButton.reset();
-    // deactiveButton(popupEdit, submitButton, config);
     popupEdit.close();
+    const button = document.querySelector('.popup__submit-button[name="submit"]')
+    button.classList.add(config.inactiveButtonClass);
+    button.setAttribute("disabled", "disabled");
+
 });
 
 // обработчики попапа добавления карточек
@@ -60,6 +63,9 @@ formAddButton.addEventListener("submit", (evt) => {
 
     formAddButton.reset();
     popupAdd.close();
+    const button = document.querySelector('.popup__submit-button[name="create"]')
+    button.classList.add(config.inactiveButtonClass);
+    button.setAttribute("disabled", "disabled");
 });
 
 const validAdd = new FormValidator(config, popupAdd);
