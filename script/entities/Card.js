@@ -1,11 +1,12 @@
 import { Popup } from "./Popup.js";
 
 export class Card {
-    _cardSelector = ".template-photos";
 
     constructor({ name, link }) {
         this._name = name;
         this._link = link;
+
+        this._cardSelector = ".template-photos";
     }
 
     createCard = () => {
