@@ -1,6 +1,6 @@
 import { Popup, Card } from "./entities/constants.js";
 import { FormValidator } from "./entities/FormValidator.js";
-import { initialCards, config, nameInput, jobInput, cardName, cardLink } from "./entities/constants.js"
+import { initialCards, config, nameInput, jobInput, cardName, cardLink, jobProfile, nameProfile } from "./entities/constants.js"
 
 
 
@@ -29,8 +29,8 @@ const editModalButtons = {
 };
 const formEditButton = document.querySelector("#formEdit");
 editModalButtons.open.addEventListener("click", () => {
-    nameInput.value = document.querySelector(".profile__name").textContent;
-    jobInput.value = document.querySelector(".profile__about-me").textContent;
+    nameInput.value = nameProfile.textContent;
+    jobInput.value = jobProfile.textContent;
 
     popupEdit.open();
 });
@@ -40,8 +40,8 @@ editModalButtons.close.addEventListener("click", () => {
 formEditButton.addEventListener("submit", (evt) => {
     evt.preventDefault();
 
-    document.querySelector(".profile__name").textContent = nameInput.value;
-    document.querySelector(".profile__about-me").textContent = jobInput.value;
+    nameProfile.textContent = nameInput.value;
+    jobProfile.textContent = jobInput.value;
 
     const button = 'submit'
     resetForm(formEditButton, popupEdit, button)

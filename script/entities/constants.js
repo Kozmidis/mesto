@@ -3,7 +3,7 @@ from "./Popup.js";
 export { Card }
 from "./Card.js";
 // перенос строки у экспорта осуществляет авторедактирование в VSCode
-export { initialCards, config, nameInput, jobInput, cardName, cardLink }
+export { initialCards, config, nameInput, jobInput, cardName, cardLink, nameProfile, jobProfile }
 export { popupImg, popupImgName, closeImageModal }
 
 const initialCards = [{
@@ -46,6 +46,9 @@ const nameInput = document.querySelector(".popup__form-input_input_name");
 const jobInput = document.querySelector(".popup__form-input_input_job");
 const cardName = document.querySelector(".popup__form-input_input_place");
 const cardLink = document.querySelector(".popup__form-input_input_image");
+
+const nameProfile = document.querySelector(".profile__name");
+const jobProfile = document.querySelector(".profile__about-me");
 
 const popupImg = document.querySelector(".popup__image");
 const popupImgName = document.querySelector(".popup__image-name");
