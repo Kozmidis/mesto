@@ -10,9 +10,3 @@
         justify-self: center;
     }
 }
-
-.photos__card:hover {
-    cursor: pointer;
-    transition: transform 0.25s ease;
-    transform: scale3d(1.03, 1.03, 1.03);
-}

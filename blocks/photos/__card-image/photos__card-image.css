@@ -5,3 +5,9 @@
     border-top-left-radius: 15px;
     border-top-right-radius: 15px;
 }
+
+.photos__card-image:hover {
+    cursor: pointer;
+    transition: transform 0.1s ease;
+    transform: scale3d(1.03, 1.03, 1.03);
+}
