@@ -3,11 +3,11 @@ import { popupImg, popupImgName, closeImageModal } from './constants.js'
 
 export class Card {
 
-    constructor({ name, link }) {
+    constructor({ name, link }, cardSelector) {
         this._name = name;
         this._link = link;
 
-        this._cardSelector = ".template-photos";
+        this._cardSelector = cardSelector;
     }
 
     createCard = () => {
@@ -17,7 +17,7 @@ export class Card {
         this.cardName.textContent = this._name;
         this.cardImage.alt = this._name;
 
-        this._setEventListener()
+        this._setEventListeners()
 
         return this.photoElements;
     };
@@ -37,7 +37,7 @@ export class Card {
         return templatePhotos.cloneNode(true);
     }
 
-    _setEventListener() {
+    _setEventListeners() {
         this.cardLike.addEventListener("click", (evt) => {
             evt.target.classList.toggle("photos__card-like_active");
         }); //функция лайка/дизлайка карточек

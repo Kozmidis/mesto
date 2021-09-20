@@ -3,7 +3,7 @@ from "./Popup.js";
 export { Card }
 from "./Card.js";
 // перенос строки у экспорта осуществляет авторедактирование в VSCode
-export { initialCards, config, nameInput, jobInput, cardName, cardLink, nameProfile, jobProfile }
+export { initialCards, listPhotos, config, nameInput, jobInput, cardName, cardLink, nameProfile, jobProfile, editModalButtons, formEditButton, addModalButtons, formAddButton, BUTTON_CREATE, BUTTON_SUBMIT }
 export { popupImg, popupImgName, closeImageModal }
 
 const initialCards = [{
@@ -31,6 +31,7 @@ const initialCards = [{
         link: "https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg",
     },
 ];
+const listPhotos = document.querySelector(".photos__cards");
 
 const config = {
     formSelector: ".popup__form",
@@ -54,3 +55,19 @@ const popupImg = document.querySelector(".popup__image");
 const popupImgName = document.querySelector(".popup__image-name");
 
 const closeImageModal = document.querySelector(".popup__close_img");
+
+
+const editModalButtons = {
+    open: document.querySelector(".profile__redact"),
+    close: document.querySelector(".popup__close_edit"),
+};
+const formEditButton = document.querySelector("#formEdit");
+
+const addModalButtons = {
+    open: document.querySelector(".profile__add-button"),
+    close: document.querySelector(".popup__close_add"),
+};
+const formAddButton = document.querySelector("#formAdd");
+
+const BUTTON_CREATE = 'create'
+const BUTTON_SUBMIT = 'submit'
