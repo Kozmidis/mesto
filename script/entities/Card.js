@@ -1,12 +1,9 @@
-import { Popup } from "./Popup.js";
-import { popupImg, popupImgName, closeImageModal } from './constants.js'
-
 export class Card {
-
-    constructor({ name, link }, cardSelector) {
-        this._name = name;
-        this._link = link;
-
+    constructor(item, cardSelector, handleCardClick) {
+        this._name = item.name;
+        this._link = item.link;
+        this._data = item;
+        this._handleCardClick = handleCardClick;
         this._cardSelector = cardSelector;
     }
 
@@ -17,7 +14,7 @@ export class Card {
         this.cardName.textContent = this._name;
         this.cardImage.alt = this._name;
 
-        this._setEventListeners()
+        this._setEventListeners();
 
         return this.photoElements;
     };
@@ -42,22 +39,13 @@ export class Card {
             evt.target.classList.toggle("photos__card-like_active");
         }); //функция лайка/дизлайка карточек
 
-
-
         this.removeButton.addEventListener("click", (evt) => {
             evt.target.closest(".photos__card").remove();
         });
         // функция удаления карточки
-        const popupImage = new Popup("#popup__image");
-        closeImageModal.addEventListener("click", popupImage.close);
 
-
-        this.cardImage.addEventListener("click", (evt) => {
-            evt.target.closest(".popup__image");
-            popupImg.src = this._link;
-            popupImg.alt = this._name;
-            popupImgName.textContent = this._name;
-            popupImage.open();
-        });
+        this.cardImage.addEventListener("click", () => {
+            this._handleCardClick(this._data);
+        }); //открыть попап изображения
     }
 }

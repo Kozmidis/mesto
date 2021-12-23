@@ -7,18 +7,22 @@ export class FormValidator {
         this._inputErrorClass = config.inputErrorClass;
         this._errorClass = config.errorClass;
 
-        this._buttonElement
+        this._buttonElement;
         this._targetFormElement = targetFormElement;
     }
     _showInputError(inputElement, errorMessage) {
-        const errorElement = this._targetFormElement.element.querySelector(`.${inputElement.id}-error`);
+        const errorElement = this._targetFormElement.element.querySelector(
+            `.${inputElement.id}-error`
+        );
         inputElement.classList.add(this._inputErrorClass);
         errorElement.textContent = errorMessage;
         errorElement.classList.add(this._errorClass);
     }
 
     _hideInputError(inputElement) {
-        const errorElement = this._targetFormElement.element.querySelector(`.${inputElement.id}-error`);
+        const errorElement = this._targetFormElement.element.querySelector(
+            `.${inputElement.id}-error`
+        );
         inputElement.classList.remove(this._inputErrorClass);
         errorElement.classList.remove(this._errorClass);
         errorElement.textContent = " ";
@@ -53,8 +57,12 @@ export class FormValidator {
             evt.preventDefault();
         });
 
-        this._inputList = Array.from(this._targetFormElement.element.querySelectorAll(this._inputSelector));
-        this._buttonElement = this._targetFormElement.element.querySelector(this._submitButtonSelector);
+        this._inputList = Array.from(
+            this._targetFormElement.element.querySelectorAll(this._inputSelector)
+        );
+        this._buttonElement = this._targetFormElement.element.querySelector(
+            this._submitButtonSelector
+        );
         this._toggleButtonState();
         this._inputList.forEach((inputElement) => {
             inputElement.addEventListener("input", () => {
@@ -64,8 +72,12 @@ export class FormValidator {
         });
     }
 
-
     enableValidation() {
         this._setEventListeners();
+    }
+
+    deactiveButton() {
+        this._buttonElement.classList.add(this._inactiveButtonClass);
+        this._buttonElement.setAttribute("disabled", "disabled");
     }
 }
