@@ -1,14 +1,14 @@
-const arhyz = new URL('../../images/cards/arkhyz.jpg',
+const arhyz = new URL('../images/cards/arkhyz.jpg',
     import.meta.url);
-const ivanovo = new URL('../../images/cards/ivanovo.jpg',
+const ivanovo = new URL('../images/cards/ivanovo.jpg',
     import.meta.url);
-const kholmogorsky = new URL('../../images/cards/kholmogorsky-rayon.jpg',
+const kholmogorsky = new URL('../images/cards/kholmogorsky-rayon.jpg',
     import.meta.url);
-const kamchatka = new URL('../../images/cards/kamchatka.jpg',
+const kamchatka = new URL('../images/cards/kamchatka.jpg',
     import.meta.url);
-const chelyabinsk = new URL('../../images/cards/chelyabinsk-oblast.jpg',
+const chelyabinsk = new URL('../images/cards/chelyabinsk-oblast.jpg',
     import.meta.url);
-const baikal = new URL('../../images/cards/baikal.jpg',
+const baikal = new URL('../images/cards/baikal.jpg',
     import.meta.url);
 
 
@@ -21,7 +21,6 @@ export { Card }
 from "../components/Card.js";
 // перенос строки у экспорта осуществляет авторедактирование в VSCode
 export { initialCards, listPhotos, config, nameInput, jobInput, cardName, cardLink, nameProfile, jobProfile, editModalButtons, formEditButton, addModalButtons, formAddButton, BUTTON_CREATE, BUTTON_SUBMIT }
-export { popupImg, popupImgName, closeImageModal }
 
 const initialCards = [{
         name: "Архыз",

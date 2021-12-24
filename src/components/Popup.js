@@ -2,23 +2,23 @@ export class Popup {
     _openedClass = "popup_opened";
 
     constructor(modalId) {
-        this.element = document.querySelector(modalId);
+        this.popup = document.querySelector(modalId);
     }
 
     open() {
-        this.element.classList.add(this._openedClass);
+        this.popup.classList.add(this._openedClass);
 
         document.addEventListener("keyup", this._handleEscClose);
     }
 
     close() {
-        this.element.classList.remove(this._openedClass);
+        this.popup.classList.remove(this._openedClass);
 
         document.removeEventListener("keyup", this._handleEscClose);
     }
 
     _handlePopupOverlayClick = (evt) => {
-        if (evt.target === this.element) {
+        if (evt.target === this.popup) {
             this.close();
         }
     };
@@ -30,11 +30,11 @@ export class Popup {
     };
 
     setEventListeners() {
-        this.element
+        this.popup
             .querySelector(".popup__close")
             .addEventListener("click", () => this.close());
 
-        this.element.addEventListener("click", (evt) =>
+        this.popup.addEventListener("click", (evt) =>
             this._handlePopupOverlayClick(evt)
         );
     }

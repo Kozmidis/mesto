@@ -1,8 +1,8 @@
 import './index.css';
 
 
-import { Card } from "../script/utils/constants.js";
-import { FormValidator } from "../script/components/FormValidator.js";
+import { Card } from "../utils/constants.js";
+import { FormValidator } from "../components/FormValidator.js";
 import {
     initialCards,
     config,
@@ -10,11 +10,11 @@ import {
     jobInput,
     editModalButtons,
     addModalButtons,
-} from "../script/utils/constants.js";
-import PopupWithImage from "../script/components/PopupWithImage.js";
-import Section from "../script/components/Section.js";
-import UserInfo from "../script/components/UserInfo.js";
-import PopupWithForm from "../script/components/PopupWithForm.js";
+} from "../utils/constants.js";
+import PopupWithImage from "../components/PopupWithImage.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import PopupWithForm from "../components/PopupWithForm.js";
 
 const popupImage = new PopupWithImage("#popup__image");
 popupImage.setEventListeners();
@@ -42,7 +42,7 @@ const userInfo = new UserInfo(".profile__name", ".profile__about-me");
 // попап редактирования профиля
 const popupEdit = new PopupWithForm({
     modalId: "#popup__edit",
-    formSubmit: (data) => {
+    handleFormSubmit: (data) => {
         userInfo.setUserInfo(data);
 
         popupEdit.close();
@@ -63,7 +63,7 @@ editModalButtons.open.addEventListener("click", () => {
 // попап добавления карточек
 const popupAdd = new PopupWithForm({
     modalId: "#popup__add",
-    formSubmit: (item) => {
+    handleFormSubmit: (item) => {
         createCard(item);
         cardList.addItems(createCard(item));
 
