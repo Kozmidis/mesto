@@ -1,7 +1,7 @@
 export { Popup }
-from "./Popup.js";
+from "../components/Popup.js";
 export { Card }
-from "./Card.js";
+from "../components/Card.js";
 // перенос строки у экспорта осуществляет авторедактирование в VSCode
 export { initialCards, listPhotos, config, nameInput, jobInput, cardName, cardLink, nameProfile, jobProfile, editModalButtons, formEditButton, addModalButtons, formAddButton, BUTTON_CREATE, BUTTON_SUBMIT }
 export { popupImg, popupImgName, closeImageModal }

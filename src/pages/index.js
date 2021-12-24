@@ -1,5 +1,5 @@
-import { Card } from "./entities/constants.js";
-import { FormValidator } from "./entities/FormValidator.js";
+import { Card } from "../script/utils/constants.js";
+import { FormValidator } from "../script/components/FormValidator.js";
 import {
     initialCards,
     config,
@@ -7,11 +7,11 @@ import {
     jobInput,
     editModalButtons,
     addModalButtons,
-} from "./entities/constants.js";
-import PopupWithImage from "./entities/PopupWithImage.js";
-import Section from "./entities/Section.js";
-import UserInfo from "./entities/UserInfo.js";
-import PopupWithForm from "./entities/PopupWithForm.js";
+} from "../script/utils/constants.js";
+import PopupWithImage from "../script/components/PopupWithImage.js";
+import Section from "../script/components/Section.js";
+import UserInfo from "../script/components/UserInfo.js";
+import PopupWithForm from "../script/components/PopupWithForm.js";
 
 const popupImage = new PopupWithImage("#popup__image");
 popupImage.setEventListeners();
