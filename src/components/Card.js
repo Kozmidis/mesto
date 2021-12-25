@@ -30,19 +30,19 @@ export class Card {
     _getTemplate() {
         const templatePhotos = document.querySelector(this._cardSelector).content;
 
-        return templatePhotos.cloneNode(true);
+        return templatePhotos.querySelector('.photos__card').cloneNode(true);
     }
 
 
 
     //метод лайка/дизлайка карточек
-    _handleCardLike(evt) {
-        evt.target.classList.toggle("photos__card-like_active");
+    _handleCardLike = () => {
+        this._cardLike.classList.toggle("photos__card-like_active")
     }
 
 
     // метод удаления карточки
-    _removeCard() {
+    _removeCard = () => {
         this._photoElement.remove();
     }
 
