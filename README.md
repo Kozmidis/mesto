@@ -23,4 +23,4 @@
 
 **GitHub Pages**
 
-* [Ссылка на Github Pages](https://kozmidis.github.io/mesto/index.html)
+* [Ссылка на Github Pages](https://kozmidis.github.io/mesto/)
