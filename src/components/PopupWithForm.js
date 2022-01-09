@@ -5,7 +5,7 @@ export default class PopupWithForm extends Popup {
         super(modalId);
         this._handleFormSubmit = handleFormSubmit;
         this._form = this.popup.querySelector(".popup__form");
-        this._button = this._form.querySelector('.popup__submit-button');
+        this._button = this._form.querySelector(".popup__submit-button");
         this._buttonText = this._button.textContent;
     }
 
@@ -33,6 +33,6 @@ export default class PopupWithForm extends Popup {
     }
 
     loadingAlert(loads) {
-        this._button.textContent = loads ? 'Сохранение...' : this._buttonText;
+        this._button.textContent = loads ? "Сохранение..." : this._buttonText;
     }
 }

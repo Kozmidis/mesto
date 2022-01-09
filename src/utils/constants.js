@@ -1,26 +1,43 @@
-const arhyz = new URL('../images/cards/arkhyz.jpg',
+const arhyz = new URL("../images/cards/arkhyz.jpg",
     import.meta.url);
-const ivanovo = new URL('../images/cards/ivanovo.jpg',
+const ivanovo = new URL("../images/cards/ivanovo.jpg",
     import.meta.url);
-const kholmogorsky = new URL('../images/cards/kholmogorsky-rayon.jpg',
+const kholmogorsky = new URL(
+    "../images/cards/kholmogorsky-rayon.jpg",
+    import.meta.url
+);
+const kamchatka = new URL("../images/cards/kamchatka.jpg",
     import.meta.url);
-const kamchatka = new URL('../images/cards/kamchatka.jpg',
+const chelyabinsk = new URL(
+    "../images/cards/chelyabinsk-oblast.jpg",
+    import.meta.url
+);
+const baikal = new URL("../images/cards/baikal.jpg",
     import.meta.url);
-const chelyabinsk = new URL('../images/cards/chelyabinsk-oblast.jpg',
-    import.meta.url);
-const baikal = new URL('../images/cards/baikal.jpg',
-    import.meta.url);
-
-
-
-
 
 export { Popup }
 from "../components/Popup.js";
 export { Card }
 from "../components/Card.js";
 // перенос строки у экспорта осуществляет авторедактирование в VSCode
-export { initialCards, listPhotos, config, nameInput, jobInput, cardName, cardLink, nameProfile, jobProfile, editModalButtons, formEditButton, addModalButtons, avatarModalButtons, formAddButton, BUTTON_CREATE, BUTTON_SUBMIT }
+export {
+    initialCards,
+    listPhotos,
+    config,
+    nameInput,
+    jobInput,
+    cardName,
+    cardLink,
+    nameProfile,
+    jobProfile,
+    editModalButtons,
+    formEditButton,
+    addModalButtons,
+    avatarModalButtons,
+    formAddButton,
+    BUTTON_CREATE,
+    BUTTON_SUBMIT,
+};
 
 const initialCards = [{
         name: "Архыз",
@@ -58,7 +75,6 @@ const config = {
     errorClass: "popup__form-input-error_active",
 };
 
-
 const nameInput = document.querySelector(".popup__form-input_input_name");
 const jobInput = document.querySelector(".popup__form-input_input_job");
 const cardName = document.querySelector(".popup__form-input_input_place");
@@ -72,7 +88,6 @@ const popupImgName = document.querySelector(".popup__image-name");
 
 const closeImageModal = document.querySelector(".popup__close_img");
 
-
 const editModalButtons = {
     open: document.querySelector(".profile__redact"),
     close: document.querySelector(".popup__close_edit"),
@@ -82,7 +97,7 @@ const formEditButton = document.querySelector("#formEdit");
 const avatarModalButtons = {
     open: document.querySelector(".profile__avatar-overlay"),
     close: document.querySelector(".popup__close_avatar"),
-}
+};
 
 const addModalButtons = {
     open: document.querySelector(".profile__add-button"),
@@ -90,5 +105,5 @@ const addModalButtons = {
 };
 const formAddButton = document.querySelector("#formAdd");
 
-const BUTTON_CREATE = 'create'
-const BUTTON_SUBMIT = 'submit'
+const BUTTON_CREATE = "create";
+const BUTTON_SUBMIT = "submit";

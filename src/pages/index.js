@@ -1,5 +1,4 @@
-import './index.css';
-
+import "./index.css";
 
 import { Card } from "../utils/constants.js";
 import { FormValidator } from "../components/FormValidator.js";
@@ -16,7 +15,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import PopupWithForm from "../components/PopupWithForm.js";
-import Api from '../components/Api';
+import Api from "../components/Api";
 import PopupSubmit from "../components/PopupSubmit.js";
 
 const api = new Api({
@@ -24,7 +23,11 @@ const api = new Api({
     token: "d9996a98-2868-4f20-beed-902261c5825b",
 });
 
-const userInfo = new UserInfo(".profile__name", ".profile__about-me", ".profile__main-avatar");
+const userInfo = new UserInfo(
+    ".profile__name",
+    ".profile__about-me",
+    ".profile__main-avatar"
+);
 
 let myInfo;
 
@@ -32,15 +35,14 @@ Promise.all([api.getUserProfile(), api.getUserCards()])
     .then(([profileInfo, cardArr]) => {
         myInfo = profileInfo;
 
-        userInfo.setUserInfo(profileInfo)
-        cardList.renderItems(cardArr)
+        userInfo.setUserInfo(profileInfo);
+        cardList.renderItems(cardArr);
         console.log(profileInfo);
         console.log(cardArr);
     })
     .catch((error) => {
         console.log(error);
     });
-
 
 const createCard = (item) => {
     const card = new Card({
@@ -52,33 +54,36 @@ const createCard = (item) => {
         },
         handleDeleteCard: (cardId) => {
             popupDelete.setSubmitAction(() => {
-                api.removeCard(cardId)
+                api
+                    .removeCard(cardId)
                     .then(() => {
                         card.removeCard();
-                        popupDelete.close()
+                        popupDelete.close();
                     })
                     .catch(() => {
-                        console.log('Ошибка удаления');
-                    })
-            })
+                        console.log("Ошибка удаления");
+                    });
+            });
             popupDelete.open();
         },
         handleLikeCard: () => {
-            api.addLike(card.getCard()._id)
+            api
+                .addLike(card.getCard()._id)
                 .then((itemCard) => {
                     card.handleCardLike(itemCard);
                 })
-                .catch(() => console.log('Ошибка работы лайка'));
+                .catch(() => console.log("Ошибка работы лайка"));
         },
         handleDeleteLikeCard: () => {
-            api.removeLike(card.getCard()._id)
+            api
+                .removeLike(card.getCard()._id)
                 .then((itemCard) => {
                     card.handleCardLike(itemCard);
                 })
-                .catch(() => console.log('Ошибка работы дизлайка'));
-        }
-    })
-    return card.createCard()
+                .catch(() => console.log("Ошибка работы дизлайка"));
+        },
+    });
+    return card.createCard();
 };
 
 const cardList = new Section({
@@ -92,7 +97,6 @@ const cardList = new Section({
 const popupDelete = new PopupSubmit("#popup__delete");
 popupDelete.setEventListeners();
 
-
 const popupImage = new PopupWithImage("#popup__image");
 popupImage.setEventListeners();
 
@@ -101,7 +105,8 @@ const popupEdit = new PopupWithForm({
     modalId: "#popup__edit",
     handleFormSubmit: (data) => {
         popupEdit.loadingAlert(true);
-        api.setUserProfile(data)
+        api
+            .setUserProfile(data)
             .then((dataInfo) => {
                 userInfo.setUserInfo(dataInfo);
                 popupEdit.close();
@@ -128,7 +133,8 @@ const popupAdd = new PopupWithForm({
     handleFormSubmit: (item) => {
         popupAdd.loadingAlert(true);
 
-        api.addCard(item)
+        api
+            .addCard(item)
             .then((itemCard) => {
                 const newCard = createCard(itemCard);
                 cardList.addItemsPrepend(newCard);
@@ -146,16 +152,14 @@ addModalButtons.open.addEventListener("click", () => {
     validAdd.deactiveButton();
 });
 
-
 const popupAvatar = new PopupWithForm({
     modalId: "#popup__avatar",
     handleFormSubmit: (data) => {
         popupAvatar.loadingAlert(true);
-        console.log(data)
 
-        api.editAvatar(data)
+        api
+            .editAvatar(data)
             .then((profileInfo) => {
-                console.log(profileInfo)
                 userInfo.setUserInfo(profileInfo);
 
                 popupAvatar.close();
