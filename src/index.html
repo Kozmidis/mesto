@@ -15,12 +15,17 @@
     <main class="content">
         <section class="profile">
             <div class="profile__main">
-                <img class="profile__main-avatar" src="<%=require('./images/avatar.png')%>" alt="аватар">
+                <div class="profile__avatar-container">
+                    <div class="profile__avatar-overlay"></div>
+                    <img class="profile__main-avatar" src="#" alt="аватар">
+
+                </div>
+
                 <div class="profile__edit-panel">
                     <div class="profile__main-info">
-                        <h1 class="profile__name">Жак-Ив Кусто</h1>
+                        <h1 class="profile__name"></h1>
 
-                        <p class="profile__about-me">Исследователь океана</p>
+                        <p class="profile__about-me"></p>
                     </div>
                     <button type="button" class="profile__redact"></button>
                 </div>
@@ -42,9 +47,9 @@
         <div class="popup__container popup__content">
             <form class="popup__form" id="formEdit" name="popupEdit" novalidate>
                 <h2 class="popup__form-title">Редактировать профиль</h2>
-                <input id="user" form="formEdit" type="text" class="popup__form-input popup__form-input_input_name" name="user" placeholder="Введите имя" minlength="2" maxlength="40" required>
+                <input id="user" form="formEdit" type="text" class="popup__form-input popup__form-input_input_name" name="name" placeholder="Введите имя" minlength="2" maxlength="40" required>
                 <span class="popup__form-input-error user-error"></span>
-                <input id="userjob" form="formEdit" type="text" class="popup__form-input popup__form-input_input_job" name="userjob" placeholder="Расскажите о себе" minlength="2" maxlength="200" required>
+                <input id="userjob" form="formEdit" type="text" class="popup__form-input popup__form-input_input_job" name="about" placeholder="Расскажите о себе" minlength="2" maxlength="200" required>
                 <span class="popup__form-input-error userjob-error"></span>
                 <button form="formEdit" class="popup__submit-button" type="submit" name="submit">Сохранить</button>
             </form>
@@ -65,6 +70,28 @@
         </div>
     </div>
 
+    <div class="popup" id="popup__avatar">
+        <div class="popup__container popup__content">
+            <form class="popup__form" id="formAvatar" name="popupAvatar" novalidate>
+                <h2 class="popup__form-title">Обновить аватар</h2>
+                <input type="url" id="avatar" form="formAvatar" class="popup__form-input popup__form-input_input_avatar" name="avatar" placeholder="Ссылка на аватар" required>
+                <span class="popup__form-input-error avatar-error"></span>
+                <button form="formAvatar" class="popup__submit-button" type="submit" name="submitAvatar">Сохранить</button>
+            </form>
+            <button type="button" class="popup__close popup__close_avatar"></button>
+        </div>
+    </div>
+
+    <div class="popup" id="popup__delete">
+        <div class="popup__container popup__content">
+            <form class="popup__form" id="formDelete" name="popupDelete" novalidate>
+                <h2 class="popup__form-title">Вы уверены?</h2>
+                <button form="formDelete" class="popup__submit-button" type="submit" name="deleteCard">Да</button>
+            </form>
+            <button type="button" class="popup__close popup__close_delete"></button>
+        </div>
+    </div>
+
     <div class="popup popup_image" id="popup__image">
         <div class="popup__image-container popup__content">
             <img src="#" alt=" " class="popup__image">
@@ -77,11 +104,16 @@
     <template class="template-photos" id="template-photos">
                 <li class="photos__card">
                     <img src="#" alt="фото" class="photos__card-image">
-                    <div class="photos__likebar">
+                    <div class="photos__info">
                         <h2 class="photos__card-name"></h2>
-                        <button type="button" class="photos__card-like"></button>
+                        <div class="photos__likebar">
+                            <button type="button" class="photos__card-like"></button>
+                            <p class="photos__card-like-counter"></p>
+                            
+                        </div>
                     </div>
                     <button type="button" class="photos__remove-button"></button>
+                   
                 </li>
     </template>
 </body>

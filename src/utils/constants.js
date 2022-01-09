@@ -20,7 +20,7 @@ from "../components/Popup.js";
 export { Card }
 from "../components/Card.js";
 // перенос строки у экспорта осуществляет авторедактирование в VSCode
-export { initialCards, listPhotos, config, nameInput, jobInput, cardName, cardLink, nameProfile, jobProfile, editModalButtons, formEditButton, addModalButtons, formAddButton, BUTTON_CREATE, BUTTON_SUBMIT }
+export { initialCards, listPhotos, config, nameInput, jobInput, cardName, cardLink, nameProfile, jobProfile, editModalButtons, formEditButton, addModalButtons, avatarModalButtons, formAddButton, BUTTON_CREATE, BUTTON_SUBMIT }
 
 const initialCards = [{
         name: "Архыз",
@@ -78,6 +78,11 @@ const editModalButtons = {
     close: document.querySelector(".popup__close_edit"),
 };
 const formEditButton = document.querySelector("#formEdit");
+
+const avatarModalButtons = {
+    open: document.querySelector(".profile__avatar-overlay"),
+    close: document.querySelector(".popup__close_avatar"),
+}
 
 const addModalButtons = {
     open: document.querySelector(".profile__add-button"),

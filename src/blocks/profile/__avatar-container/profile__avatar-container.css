@@ -1,0 +1,13 @@
+.profile__avatar-container {
+    margin-right: 28px;
+    width: 128px;
+    height: 128px;
+    position: relative;
+}
+
+@media all and (max-width: 740px) {
+    .profile__avatar-container {
+        justify-self: center;
+        margin: 0px;
+    }
+}

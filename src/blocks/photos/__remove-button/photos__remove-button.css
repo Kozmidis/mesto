@@ -1,4 +1,5 @@
 .photos__remove-button {
+    display: none;
     background: transparent;
     background-image: url(../../../images/remove.svg);
     background-size: 19px;
