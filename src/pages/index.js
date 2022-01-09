@@ -20,7 +20,10 @@ import PopupSubmit from "../components/PopupSubmit.js";
 
 const api = new Api({
     address: "https://mesto.nomoreparties.co/v1/cohort-32",
-    token: "d9996a98-2868-4f20-beed-902261c5825b",
+    headers: {
+        authorization: "d9996a98-2868-4f20-beed-902261c5825b",
+        "Content-Type": "application/json",
+    },
 });
 
 const userInfo = new UserInfo(
@@ -37,8 +40,6 @@ Promise.all([api.getUserProfile(), api.getUserCards()])
 
         userInfo.setUserInfo(profileInfo);
         cardList.renderItems(cardArr);
-        console.log(profileInfo);
-        console.log(cardArr);
     })
     .catch((error) => {
         console.log(error);
@@ -88,7 +89,6 @@ const createCard = (item) => {
 
 const cardList = new Section({
         renderer: (item) => {
-            createCard(item);
             cardList.addItemsAppend(createCard(item));
         },
     },
@@ -104,7 +104,7 @@ popupImage.setEventListeners();
 const popupEdit = new PopupWithForm({
     modalId: "#popup__edit",
     handleFormSubmit: (data) => {
-        popupEdit.loadingAlert(true);
+        popupEdit.renderLoading(true);
         api
             .setUserProfile(data)
             .then((dataInfo) => {
@@ -112,7 +112,7 @@ const popupEdit = new PopupWithForm({
                 popupEdit.close();
             })
             .catch((error) => console.log(error))
-            .finally(() => popupEdit.loadingAlert(false));
+            .finally(() => popupEdit.renderLoading(false));
     },
 });
 popupEdit.setEventListeners();
@@ -131,7 +131,7 @@ editModalButtons.open.addEventListener("click", () => {
 const popupAdd = new PopupWithForm({
     modalId: "#popup__add",
     handleFormSubmit: (item) => {
-        popupAdd.loadingAlert(true);
+        popupAdd.renderLoading(true);
 
         api
             .addCard(item)
@@ -141,7 +141,7 @@ const popupAdd = new PopupWithForm({
                 popupAdd.close();
             })
             .catch((error) => console.log(error))
-            .finally(() => popupAdd.loadingAlert(false));
+            .finally(() => popupAdd.renderLoading(false));
     },
 });
 popupAdd.setEventListeners();
@@ -155,7 +155,7 @@ addModalButtons.open.addEventListener("click", () => {
 const popupAvatar = new PopupWithForm({
     modalId: "#popup__avatar",
     handleFormSubmit: (data) => {
-        popupAvatar.loadingAlert(true);
+        popupAvatar.renderLoading(true);
 
         api
             .editAvatar(data)
@@ -165,7 +165,7 @@ const popupAvatar = new PopupWithForm({
                 popupAvatar.close();
             })
             .catch((error) => console.log(error))
-            .finally(() => popupAvatar.loadingAlert(false));
+            .finally(() => popupAvatar.renderLoading(false));
     },
 });
 popupAvatar.setEventListeners();

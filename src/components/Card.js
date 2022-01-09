@@ -58,7 +58,7 @@ export class Card {
     }
 
     _getLikesCounter(item) {
-        this._photoElement.querySelector(".photos__card-like-counter").textContent =
+        this._likesCounter.textContent =
             item.likes.length;
     }
 
